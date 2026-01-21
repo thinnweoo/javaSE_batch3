@@ -1,23 +1,42 @@
 package javaSE_Batch3;
 
 public class Product {
-    public String productName;
-    public int productID;
-    public double basePrice;
-    public String productType;
+    private String productName;
+    private int productID;
+    private double basePrice;
 
-//    Product(String productName, int productID, double basePrice, String productType) {
-//        this.productName = productName;
-//        this.productID = productID;
-//        this.basePrice = basePrice;
-//        this.productType = productType;
-//    }
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
 
     public Product() {
 
     }
 
     public void display() {
-        System.out.println("Product Name: " + productName + " Product ID: " + productID + " Base Price: " + basePrice + " Product Type: " + productType);
+        System.out.println("Product Name: " + productName + " Product ID: " + productID + " Base Price: " + basePrice);
+    }
+
+    public void setShippingCost(int cost) {
+
+    }
+
+    public void setLicenseValidation(boolean b) {
     }
 }

@@ -8,6 +8,17 @@ public class ProductRegister {
 
     public static void main(String[] args) {
 
+        System.out.println("--- User Register ---");
+        System.out.print("Enter username: ");
+        String username = sc.nextLine();
+        System.out.print("Enter email: ");
+        String email = sc.nextLine();
+
+        User user = new User(username,email);
+        System.out.println("\n--- Registration Successful ---");
+        System.out.println("Username: " + user.getUserName());
+        System.out.println("Email: " + user.getEmail());
+
         Product[] products = new Product[100];
         int index = 0;
         int n;
@@ -51,22 +62,43 @@ public class ProductRegister {
     }
 
     public static Product collectProduct() {
+        System.out.print("Enter product type: physical/digital type(p or d): ");
+        char type = sc.nextLine().charAt(0);
+        if (type == 'p') {
+            Product pp = new PhysicalProduct();
+            System.out.print("Enter shipping cost: ");
+            int cost = sc.nextInt();
+            pp.setShippingCost(cost);
+            sc.nextLine();
+            System.out.print("Enter Product Name: ");
+            pp.setProductName(sc.nextLine());
 
-        Product p = new Product();
+            System.out.print("Enter Product ID: ");
+            pp.setProductID(sc.nextInt());
 
-        System.out.print("Enter Product Name: ");
-        p.productName = sc.nextLine();
+            System.out.print("Enter Base Price: ");
+            pp.setBasePrice(sc.nextDouble());
+            sc.nextLine();
 
-        System.out.print("Enter Product ID: ");
-        p.productID = sc.nextInt();
+            return pp;
 
-        System.out.print("Enter Base Price: ");
-        p.basePrice = sc.nextDouble();
-        sc.nextLine();
+        }else if (type == 'd') {
+            Product dp = new DigitalProduct();
+            System.out.print("Is license valid (true/false): ");
+            dp.setLicenseValidation(sc.nextBoolean());
+            sc.nextLine();
+            System.out.print("Enter Product Name: ");
+            dp.setProductName(sc.nextLine());
+            System.out.print("Enter Product ID: ");
+            dp.setProductID(sc.nextInt());
+            sc.nextLine();
+            System.out.print("Enter Base Price: ");
+            dp.setBasePrice(sc.nextDouble()); sc.nextLine();
 
-        System.out.print("Enter Product Type: ");
-        p.productType = sc.nextLine();
 
-        return p;
+            return dp;
+
+        }
+        return null;
     }
 }
